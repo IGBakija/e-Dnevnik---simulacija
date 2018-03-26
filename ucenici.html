@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            e-Dnevik
+        </title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Testni zadatak">
+        <meta name="keywords" content="zadatak, e-imenik">
+        <meta name="author" content="Ivana Grđan Bakija">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="javascript.js"></script> 
+        <style type="text/css">
+            table, th, td {
+                border: 0px;
+            }
+        </style>
+    </head>
+    <body>
+         <div class="topnav" id="myTopnav">
+            <a href="pocetna.html" class="active"><span class="home">e-Dnevnik</span></a>
+            <a href="imenik.html">Imenik</a>
+            <a href="predmeti.html">Predmeti</a>
+            <a href="ucenici.html">Učenici</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </div> 
+        <div class="full" >
+            <div class="kontejner" >
+                <div class="students">
+                    <h3>Hrvoje Ivanović</h3>
+                </div>
+                <img src="https://www.shareicon.net/data/256x256/2016/08/06/807928_edit_512x512.png" class="edit">
+                <img src="https://www.shareicon.net/data/256x256/2015/10/08/114124_down_512x512.png" class="arrow-down">
+                <img src="https://www.shareicon.net/download/2015/10/08/114125_arrow.ico" class="arrow-up">
+                <img src="https://image.flaticon.com/icons/png/128/61/61391.png" class="trash">
+            </div>
+            <div class="description">
+                <table class="about">
+                    <tr>
+                        <th>Datum rođenja:</th>
+                        <td>21.04.2002.</td> 
+                    </tr>
+                    <tr>
+                        <th>Adresa stanovanja:</th>
+                        <td>ul. Grada Vukovara 45</td>
+                    </tr>
+                    <tr>
+                        <th>Ime roditelja:</th>
+                        <td>Mirko</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="student-entry">
+
+            <form class="form-horizontal" id="student-entry">
+
+                <div class="form-group">
+                    <label class="control-label col-sm-6" for="studentName">Ime učenika:</label>
+                    <div class="col-sm-12">
+                      <input type="text" class="form-control" id="studentName" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-6" for="studentFamilyName">Prezime učenika:</label>
+                    <div class="col-sm-12">
+                      <input type="text" class="form-control" id="studentFamilyName" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-6" id="teacher-label" for="birthday">Datum rođenja učenika:</label>
+                    <div class="col-sm-12">
+                        <input type="date" class="form-control" id="birthday" required> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-6" id="teacher-label" for="birthday">Adresa stanovanja:</label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" id="adress" required> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-6" id="teacher-label" for="parentName">Ime roditelja:</label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" id="parentName" required> 
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <input type="submit" class="btn btn-default student-button" value="Unesi">
+                  </div>
+                </div>
+            </form> 
+
+            <div class="confirmation">
+                <p>Jeste li sigurni da želite obrisati ovaj element?</p>
+
+                <button class="btn btn-default" id="confirm">Jesam!</button>
+                <button class="btn btn-default" id="cancel">Odustani</button>
+            </div>
+
+            
+
+        </div>
+    </body>
+</html>

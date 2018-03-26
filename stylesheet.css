@@ -1,0 +1,318 @@
+body {
+	background-color: #E6EAED;
+}
+
+.btn {
+    background-color: #235185; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.entry-button, .student-button {
+	position: absolute;
+    left: 50%;
+    top: 10px;
+}
+
+.classes-button {
+	position: relative;
+	left: 80px;
+	bottom: 20px;
+}
+
+.btn:hover {
+	background-color: #3568a3; 
+}
+
+.col-form-label {
+	width: 200px;
+}
+
+.form-control {
+	width: 200px;
+}
+
+.sign_in {
+	background-color: white;
+	padding: 25px 40px 50px 40px;
+	border: 2px solid #8C9BBB;
+	border-radius: 10px;
+	box-shadow: 0 0 10px #235185;
+	width: 380px;
+	position: absolute;
+	top: 30%;
+	transform: translateY(-50%);
+	left: 50%;
+	transform: translateX(-50%);
+}
+.e_dnevnik {
+	color: #235185;
+	font-weight: bold;
+	font-size: 3.5em;
+	position: absolute;
+	top: 10%;
+	transform: translateY(-10%);
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+ /* Add a black background color to the top navigation */
+.topnav {
+    background-color: #235185;
+    overflow: hidden;
+    box-shadow: 0 0 10px #235185; 
+    margin-bottom: 30px;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #3568a3;
+    color: #E6EAED;
+    text-decoration: none;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+    color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+    display: none;
+} 
+ /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+ 
+ .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+} 
+.home {
+	font-weight: bold;
+	font-size: 1.1em;
+	color: white;
+}
+
+.kontejner, .confirmation {
+	border-radius: 10px;
+	box-shadow: 0 0 5px #235185;
+	background-color: #eff2f7;
+}
+
+
+.confirmation {
+	background-color: #235185;
+	color: #FFF;
+	position: absolute;
+	margin: auto;
+	top: 250px;
+	display: none;
+	padding: 20px;
+	text-align: center;
+}
+
+#confirm, #cancel  {
+	margin: 0 50px;
+	background-color: #eff2f7; 
+	color: #000;
+}
+
+.subjects, .students {
+	cursor: pointer;
+	width: 320px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px #235185;
+	padding: 10px 20px;
+	font-weight: bold;
+	font-size: 2em;
+	text-transform: uppercase;
+	color: #235185;
+	text-align: center;
+	background-color: white;
+}
+.subjects > h3, .students > h3 {
+	margin-top: 0;
+	font-weight: bold;
+}
+
+.subject-entry, .student-entry {
+	border-radius: 10px;
+	box-shadow: 0 0 7px #235185;
+	margin: 80px 50px 20px;
+	padding: 50px;
+	padding-top: 30px; 
+	padding-bottom: 50px; 
+	background-color: #eff2f7;
+}
+
+.student-entry {
+	width: 500px;
+	margin: auto;
+	margin-top: 50px;
+}
+
+#teacher, #subject {
+	width: 300px;
+}
+
+
+.full {
+	border-radius: 10px;
+	box-shadow: 0 0 5px #235185;
+	margin: 0 50px 5px;
+	
+}
+
+.description {
+	display: none;
+	padding: 20px;
+}
+
+th, td {
+	padding: 5px 15px;
+}
+
+.subject-description {
+	padding: 0 20px 20px;
+	text-indent: 20px;
+}
+
+.teacher-name {
+	font-weight: bold;
+	padding: 20px 20px 0;
+}
+
+.trash, .arrow-up, .arrow-down, .edit, .done {
+	width: 20px;
+	position: relative;
+	float: right;
+	top: -40px;
+	display: inline;
+	cursor: pointer;
+}
+
+.trash {
+	right: 10px;
+}
+
+.trash:hover {
+	background-color: rgba(181, 108, 39, 0.5);
+}
+
+.arrow-up {
+	right: 60px;
+}
+
+.arrow-down {
+	right: 110px;
+}
+
+.edit {
+	right: 160px;
+}
+
+.done{
+	right: 210px;
+	display: none;
+}
+
+.arrow-up:hover, .arrow-down:hover, .edit:hover, .done:hover {
+	background-color: rgba(56, 153, 96, 0.5);
+}
+
+.editable {
+	display: none;
+	position: relative;
+	top: -40px;
+
+}
+
+.edit-subject {
+	left: 350px;
+}
+
+.edit-teacher {
+	left: 200px;
+}
+
+.edit-description {
+	left: 20px;
+	width: 500px;
+	margin-top: 20px; 
+}
+
+.student-classes {
+
+}
+
+.student-list {
+	margin: 5px 0;
+}
+
+.uppercased {
+	 text-transform: uppercase;
+}
+.grades {
+	border: 1px solid black;
+	margin: 20px auto;
+
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.grade-info {
+	width: 300px;
+}
+
+.noting {
+	width: 300px;
+
+    vertical-align: middle;
+}
+
+#note {
+	float: right;
+}
+
+.student-info {
+	display: table-cell;
+}
+
+.about {
+	border: 0px;
+}

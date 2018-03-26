@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            e-Dnevik
+        </title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Testni zadatak">
+        <meta name="keywords" content="zadatak, e-imenik">
+        <meta name="author" content="Ivana Grđan Bakija">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="javascript.js"></script> 
+    </head>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="pocetna.html" class="pocetna"><span class="home">e-Dnevnik</span></a>
+            <a href="imenik.html">Imenik</a>
+            <a href="predmeti.html">Predmeti</a>
+            <a href="ucenici.html">Učenici</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </div> 
+        <div>
+            <h3>Hrvoje Ivanović</h3>
+        </div>
+        <div class="full">
+            <div class="kontejner">
+                <div class="subjects">
+                    <h3>Hrvatski jezik</h3>
+                </div>
+            </div>
+            <div class="description">
+                <table class="grades">
+                    <tr>
+                        <th class="grade-info">Ocjene proizlaze iz:</th>
+                        <td>IX</td>
+                        <td>X</td>
+                        <td>XI</td>
+                        <td>XII</td>
+                        <td>I</td>
+                        <td>II</td>
+                        <td>III</td>
+                        <td>IV</td>
+                        <td>V</td>
+                        <td>VI</td>
+                    </tr>
+                    <tr>
+                        <td>Usvojenost i razumjevanje</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td>Samostalan rad</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="uppercased">Zaključeno</td>
+                        <td colspan="4"></td>
+                        <td colspan="6"></td>
+                    </tr>
+                </table>
+                <table class="grades">
+                    <tr>
+                        <th class="noting" style="vertical-align: middle;">Bilješka <button class="btn btn-default" id="note">Unos bilješke</button></th>
+                        <th>Ocjena</th>
+                        <th>Datum</th>
+                        <th>Datum upisa</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            text
+                        </td>
+                        <td>5</td>
+                        <td>21.3.2018.</td>
+                        <td></td>
+                    </tr>
+                </table>
+                <div>
+                    
+                </div>
+            </div>
+        </div>
+        <div id="dialog-confirm" title="Unos bilješke">
+            <form>
+                <input type="text" name="">
+                <input type="number" name="" min="1" max="5" style="width: 50px">
+                <input type="date" name="">
+                <input type="date" name="">
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            e-Dnevik
+        </title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Testni zadatak">
+        <meta name="keywords" content="zadatak, e-imenik">
+        <meta name="author" content="Ivana Grđan Bakija">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="javascript.js"></script> 
+    </head>
+    <body>
+         <div class="topnav" id="myTopnav">
+            <a href="pocetna.html" class="active"><span class="home">e-Dnevnik</span></a>
+            <a href="imenik.html">Imenik</a>
+            <a href="predmeti.html">Predmeti</a>
+            <a href="ucenici.html">Učenici</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+        </div> 
+        <div class="full group">
+            <div class="kontejner">
+                <div class="subjects">
+                    <h3>1A</h3>
+                </div>
+            </div>
+            <div class="description">
+                <div class="full student-list">
+                    <div class="kontejner">
+                        <div class="students">
+                            <h6>Martina Kolar</h6>
+                        </div>
+                        <img src="https://image.flaticon.com/icons/png/128/61/61391.png" class="trash">
+                    </div>
+                    <div class="description">
+                        postoji
+                        </p>
+                    </div>
+                </div>
+                <div class="full student-list">
+                    <div class="kontejner">
+                        <div class="students">
+                            <h6>Andrea babić</h6>
+                        </div>
+                        <img src="https://image.flaticon.com/icons/png/128/61/61391.png" class="trash">
+                    </div>
+                    <div class="description">
+                        postoji
+                        </p>
+                    </div>
+                </div>
+
+                <div class="student-entry">
+                    <form class="new-student-entry">
+                        
+                            <p>Novi učenik:</p>
+                            <input type="text" class="new-student-name" placeholder="Ime" required>
+                            
+                            <input type="text" class="new-student-surname" placeholder="Prezime" required>
+                            
+                            <input type="submit" class="btn btn-default classes-button" value="Unesi">
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="student-entry">
+            <form class="form-horizontal" id="new-class">
+                <div class="form-group">
+                    <label class="control-label col-sm-6" for="student-classes">Novi razred: </label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" id="student-classes" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <input type="submit" class="btn btn-default student-button" value="Unesi">
+                  </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="lightbox">
+            <div class="">
+                
+            </div>
+        </div>
+        <div class="confirmation">
+            <p>Jeste li sigurni da želite obrisati ovaj element?</p>
+
+            <button class="btn btn-default" id="confirm">Jesam!</button>
+            <button class="btn btn-default" id="cancel">Odustani</button>
+        </div>
+    </body>
+</html>

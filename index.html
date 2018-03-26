@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            e-Dnevik
+        </title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Testni zadatak">
+        <meta name="keywords" content="zadatak, e-imenik">
+        <meta name="author" content="Ivana Grđan Bakija">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        <h1 class="e_dnevnik">
+            e-Dnevnik
+        </h1>
+        <div class="sign_in">
+           <form class="form-horizontal" action="pocetna.html"> <!-- action ima direktan link na pocetnu stranicu radi lakseg pregleda; inace bi trebalo provuci kroz back-end --> 
+                <div class="form-group">
+                    <label class="control-label col-sm-6" for="Username">Korisničko ime:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="Username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Lozinka:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="pwd">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <input type="submit" class="btn btn-default entry-button" value="Prijava">
+                  </div>
+                </div>
+            </form> 
+        </div>
+    </body>
+</html>
