@@ -1,5 +1,6 @@
 body {
 	background-color: #E6EAED;
+	min-width: 630px;
 }
 
 .btn {
@@ -13,7 +14,7 @@ body {
     font-size: 16px;
 }
 
-.entry-button, .student-button {
+.entry-button, .student-button  {
 	position: absolute;
     left: 50%;
     top: 10px;
@@ -61,7 +62,7 @@ body {
 	transform: translateX(-50%);
 }
 
- /* Add a black background color to the top navigation */
+/* navigation */
 .topnav {
     background-color: #235185;
     overflow: hidden;
@@ -69,7 +70,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* Style the links inside the navigation bar */
 .topnav a {
     float: left;
     display: block;
@@ -80,24 +80,21 @@ body {
     font-size: 17px;
 }
 
-/* Change the color of links on hover */
 .topnav a:hover {
     background-color: #3568a3;
     color: #E6EAED;
     text-decoration: none;
 }
 
-/* Add an active class to highlight the current page */
 .active {
     color: white;
 }
 
-/* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
     display: none;
 } 
  /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: right;
@@ -106,7 +103,7 @@ body {
 }
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive a.icon {
     position: absolute;
@@ -134,11 +131,12 @@ body {
 
 
 .confirmation {
+	width: 500px;
 	background-color: #235185;
 	color: #FFF;
-	position: absolute;
+	position: relative;
 	margin: auto;
-	top: 250px;
+	top: -550px;
 	display: none;
 	padding: 20px;
 	text-align: center;
@@ -274,10 +272,6 @@ th, td {
 	margin-top: 20px; 
 }
 
-.student-classes {
-
-}
-
 .student-list {
 	margin: 5px 0;
 }
@@ -301,7 +295,6 @@ table, th, td {
 
 .noting {
 	width: 300px;
-
     vertical-align: middle;
 }
 
@@ -315,4 +308,28 @@ table, th, td {
 
 .about {
 	border: 0px;
+}
+
+.name-from-imenik {
+	background-color: #3568a3;
+	padding: 15px;
+}
+
+.lightbox {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0;
+	background-color: white;
+	display: none;
+}
+
+#saved, #canceled {
+	position: relative;
+	margin: 5px 50px 0;
+}
+
+.to-center {
+	position: absolute;
 }

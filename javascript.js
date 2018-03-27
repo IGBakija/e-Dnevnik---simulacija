@@ -1,7 +1,5 @@
-$(document).ready(function(){
-
 // responsive navigation
-	function myFunction() {
+function myFunction() {
 	    var x = document.getElementById("myTopnav");
 	    if (x.className === "topnav") {
 	        x.className += " responsive";
@@ -10,12 +8,38 @@ $(document).ready(function(){
 	    }
 	};
 
-	myFunction()
+$(document).ready(function(){
+
+	var prvi = ["matematika", "fizika", "hrvatski jezik", "informatika", "engleski jezik", "likovna umjetnost"]
+
+	var $subjectName = "";
+	var $studentName = "";
+
+	$(".nontoggle").children("a").on("click", function() {
+		$subjectName = $(".nontoggle").children("a").val();
+		$studentName = $(".nontoggle").children("h6").val();
+		console.log($subjectName + " " + $studentName + "fsdg")
+
+		$(".subject-from-imenik").text($subjectName);
+		$(".name-from-imenik").text($studentName);
+		
+	})
+	
+	myFunction();
+
+	
+
+
 
 // toggle 
 	function myToggle() {
 		$(".kontejner").click(function(){
-		    $(this).next().toggle();
+			if ($(this).hasClass("nontoggle")) {
+		    	console.log("chill");
+		    }
+		    else {
+		    	$(this).next().toggle();
+		    }
 		});
 	};
 
@@ -30,6 +54,10 @@ $(document).ready(function(){
 			var $maintitle = $('h3', $full);
 			var $teacher = $('p:first', $full);
 			var $description = $('p:last', $full);
+			var $birthday = $('td:first', $full);
+			var $address = $('td:nth-child(2)', $full);
+			var $parentName = $('td:last', $full);
+			var $td = $('td', $full);
 
 			$maintitle.attr({'contenteditable':'true'});
 			$maintitle.click(function(e){
@@ -37,6 +65,10 @@ $(document).ready(function(){
 			});
 			$teacher.attr({'contenteditable':'true'});
 			$description.attr({'contenteditable':'true'});
+			$birthday.attr({'contenteditable':'true'});
+			$address.attr({'contenteditable':'true'});
+			$parentName.attr({'contenteditable':'true'});
+			$td.attr({'contenteditable':'true'});
 
 			$done.show()
 
@@ -45,6 +77,10 @@ $(document).ready(function(){
 				$maintitle.attr({'contenteditable':'false'});
 				$teacher.attr({'contenteditable':'false'});
 				$description.attr({'contenteditable':'false'});
+				$birthday.attr({'contenteditable':'false'});
+				$address.attr({'contenteditable':'false'});
+				$parentName.attr({'contenteditable':'false'});
+				$td.attr({'contenteditable':'false'});
 				$done.hide()
 			})
 		});
@@ -52,30 +88,46 @@ $(document).ready(function(){
 
 	displayEdit();
 
-  	$( function() {
-  		if( $( "#dialog-confirm" ).length > 0) {
+  	function myNote() {
+  		$("#note").click(function(e) {
+  			$(".lightbox").show()
+  		})
+  		
+  		$("#saved").click(function(e) {
 
-  			/*
-			// ovaj kod nece raditi
-			// trebas naci i izvaditi cijeli dijalog iz DOMa i onda kada netko kline nacrtati lightbox i zakaciti ga u njega
+  		$note = $("#grade-note").val()
+  		$grade = $("#grade").val()
+  		$dateG = $("#date-graded").val().split('-');
+  		$dateN = $("#date-noted").val().split('-');
 
-		    $( "#dialog-confirm" ).dialog({
-			    resizable: false,
-			    height: "auto",
-			    width: 400,
-			    modal: true,
-			    buttons: {
-			        "Spremi promjene": function() {
-			          $( this ).dialog( "close" );
-			        },
-			        Cancel: function() {
-			          $( this ).dialog( "close" );
-			        }
-			    }
-		    });
-		    */
-  		}
-  	});
+  		$("<tr></tr>")
+  			.appendTo(".grades")
+
+  		$("<td></td>")
+  			.text($note)
+  			.appendTo("tr:last")
+
+  		$("<td></td>")
+  			.text($grade)
+  			.appendTo("tr:last")
+
+  		$("<td></td>")
+  			.text($dateG[2]+'.'+$dateG[1]+'.'+$dateG[0])
+  			.appendTo("tr:last")
+
+  		$("<td></td>")
+  			.text($dateN[2]+'.'+$dateN[1]+'.'+$dateN[0])
+  			.appendTo("tr:last")
+
+  		$(".lightbox").hide()
+  		})
+  		$("#canceled").click(function(e) {
+  			$(".lightbox").hide()
+  		})
+  	}
+
+  	myNote()
+
 
 // delete 
 	function myDelete() {
@@ -240,7 +292,17 @@ $(document).ready(function(){
 			.addClass("trash")
 			.attr("src", "https://image.flaticon.com/icons/png/128/61/61391.png")
 			.on("click", function(event) {
-				$(this).closest(".full").remove()
+				e.stopPropagation();
+				$toDelete = $(this).closest(".full")
+				$(".confirmation").show()		
+					
+				$("#confirm").click(function() {
+					$toDelete.remove()
+					$(".confirmation").hide()
+				})
+				$("#cancel").click(function() {
+					$(".confirmation").hide()
+				})
 			 })
 			.appendTo(".kontejner:last");
 
@@ -263,33 +325,77 @@ $(document).ready(function(){
 	   e.preventDefault();
 	});
 
-	$(".new-student-entry").on('submit',function(e) {
-		var $newStudentName = $('.new-student-name').val();
-		var $newStudentSurname = $('.new-student-surname').val();
+// add new student to imenik
 
-		myToggle();
+	function newStudentEntry (e) {
+		$("#new-student-entry").on('submit',function(e) {
+			var $newStudentName = $('.new-student-name').val();
+			var $newStudentSurname = $('.new-student-surname').val();
+			var $description = $(this).parents(".description")
+			myToggle();
 
-		$('<div></div>')
-		   	.addClass("full")
-		   	.addClass("student-list")
-		   	.insertBefore(".student-entry");
+			$('<div></div>')
+			   	.addClass("full")
+			   	.addClass("student-list")
+			   	.insertAfter($description.children(".student-list:last"));
 
-	    $('<div></div>')
-		   	.addClass("kontejner")
-		   	.appendTo(".full:last");
+			var $thisFull = $description.children(".student-list:last");
 
-		$('<div></div>')
-		   	.addClass("students")
-		   	.appendTo(".kontejner:last");
+		    $('<div></div>')
+			   	.addClass("kontejner")
+			   	.appendTo($thisFull);
 
-		$('<h3></h3>')
-		   	.text($newStudentName)
-		   	.append(" " + $newStudentSurname)
-		   	.appendTo(".students:last");
+			var $thisKont = $thisFull.children(".kontejner:last");
 
-		myToggle();
-	})
+			$('<div></div>')
+			   	.addClass("students")
+			   	.appendTo($thisKont);
 
+			var $thisStudents = $thisKont.children(".students:last");
+
+			$('<h6></h6>')
+			   	.text($newStudentName)
+			   	.append(" " + $newStudentSurname)
+			   	.appendTo($thisStudents);
+
+			$('<div></div>')
+			   	.addClass("description")
+			   	.appendTo($thisFull);
+
+			var $descToFill = $thisFull.children(".description");
+
+			 for (var i = 0; i < prvi.length; i++) {
+			 	$('<div></div>')
+				   	.addClass("kontejner")
+				   	.addClass("nontoggle")
+				   	.appendTo($descToFill);
+
+				var $loopingKont = $descToFill.children(".kontejner:last");
+
+			   	$('<div></div>')
+			   		.addClass("subjects")
+			   		.appendTo($loopingKont);
+
+			   	$('<h3></h3>')
+			   		.addClass("new-subject-from-for")
+			   		.text(prvi[i])
+			   		.appendTo($loopingKont.children(".subjects"));
+
+			   	$('<a></a>')	
+			   		.text(prvi[i])
+			   		.attr("href", "ocjene.html")
+			   		.appendTo($loopingKont.children(".new-subject-from-for:last"));
+
+
+			 }
+
+			myToggle();
+
+			e.preventDefault();
+		});
+	}
+
+	newStudentEntry();
 // processing form #student-entry with jquery
 	$("#student-entry").on('submit', function (e) {
 
@@ -330,7 +436,35 @@ $(document).ready(function(){
 			.addClass("edit")
 			.attr("src","https://www.shareicon.net/data/256x256/2016/08/06/807928_edit_512x512.png")
 			.on("click", function(event){
-				event.stopPropagation();
+				$(".edit").click(function(e){
+					e.stopPropagation();
+					var $done = $(this).prev(".done")
+					console.log($done)
+					var $full = $(this).parents('.full');
+					var $maintitle = $('h3', $full);
+					var $birthday = $('td:first', $full);
+					var $address = $('td:nth-child(2)', $full);
+					var $parentName = $('td:last', $full);
+
+					$maintitle.attr({'contenteditable':'true'});
+					$maintitle.click(function(e){
+						e.stopPropagation();
+					});
+					$birthday.attr({'contenteditable':'true'});
+					$address.attr({'contenteditable':'true'});
+					$parentName.attr({'contenteditable':'true'});
+
+					$done.show()
+
+					$($done).click(function(e){
+						e.stopPropagation();
+						$maintitle.attr({'contenteditable':'false'});
+						$birthday.attr({'contenteditable':'false'});
+						$address.attr({'contenteditable':'false'});
+						$parentName.attr({'contenteditable':'false'});
+						$done.hide()
+					})
+				});
 			})
 			.appendTo(".kontejner:last");
 
@@ -364,7 +498,18 @@ $(document).ready(function(){
 			.addClass("trash")
 			.attr("src", "https://image.flaticon.com/icons/png/128/61/61391.png")
 			.on("click", function(event) {
-				$(this).closest(".full").remove()
+				e.stopPropagation();
+				$toDelete = $(this).closest(".full")
+				$(".confirmation").show()		
+				
+				$("#confirm").click(function() {
+					$toDelete.remove()
+					$(".confirmation").hide()
+				})
+				$("#cancel").click(function() {
+					$(".confirmation").hide()
+				})
+
 			 })
 			.appendTo(".kontejner:last");
 
@@ -414,7 +559,7 @@ $(document).ready(function(){
 	   e.preventDefault();
 	});
 
-
+// new class
 	$("#new-class").on('submit', function (e) {
 
 		var $class = $('#student-classes').val();
@@ -428,6 +573,24 @@ $(document).ready(function(){
 	    $('<div></div>')
 		   	.addClass("kontejner")
 		   	.appendTo(".full:last");
+
+		$('<img></img>')
+			.addClass("trash")
+			.attr("src", "https://image.flaticon.com/icons/png/128/61/61391.png")
+			.on("click", function(event) {
+				e.stopPropagation();
+				$toDelete = $(this).closest(".full")
+				$(".confirmation").show()		
+					
+				$("#confirm").click(function() {
+					$toDelete.remove()
+					$(".confirmation").hide()
+				})
+				$("#cancel").click(function() {
+					$(".confirmation").hide()
+				})
+			 })
+			.appendTo(".kontejner:last");
 
 	   	$('<div></div>')
 		   	.addClass("students")
@@ -448,7 +611,65 @@ $(document).ready(function(){
 
 		$('<form></form>')
 			.addClass("new-student-entry")
+			.on('submit',function(e) {
+			var $newStudentName = $('.new-student-name').val();
+			var $newStudentSurname = $('.new-student-surname').val();
+			var $thisElem = $(this).closest(".student-entry");
+			myToggle();
+
+			$('<div></div>')
+			   	.addClass("full")
+			   	.addClass("student-list")
+			   	.insertBefore($thisElem);
+
+			var $thisFull = $thisElem.prev(".student-list:last");
+
+		    $('<div></div>')
+			   	.addClass("kontejner")
+			   	.appendTo($thisFull);
+
+			var $thisKont = $thisFull.children(".kontejner:last");
+
+			$('<div></div>')
+			   	.addClass("students")
+			   	.appendTo($thisKont);
+
+			var $thisStudents = $thisKont.children(".students:last");
+
+			$('<h6></h6>')
+			   	.text($newStudentName)
+			   	.append(" " + $newStudentSurname)
+			   	.appendTo($thisStudents);
+
+			$('<div></div>')
+			   	.addClass("description")
+			   	.appendTo($thisFull);
+
+			var $descToFill = $thisFull.children(".description");
+
+			 for (var i = 0; i < prvi.length; i++) {
+			 	$('<div></div>')
+				   	.addClass("kontejner")
+				   	.appendTo($descToFill);
+
+				var $loopingKont = $descToFill.children(".kontejner:last");
+
+			   	$('<div></div>')
+			   		.addClass("subjects")
+			   		.appendTo($loopingKont);
+
+			   	$('<h3></h3>')	
+			   		.text(prvi[i])
+			   		.appendTo($loopingKont.children(".subjects"));
+
+			 }
+
+			myToggle();
+
+			e.preventDefault();
+		})
 			.appendTo(".differential:last");
+
 
 		$('<p></p>')
 			.text("Novi učenik:")
@@ -469,8 +690,9 @@ $(document).ready(function(){
 		$('<input type="submit" class="btn btn-default classes-button" value="Unesi">')
 			.appendTo('.new-student-entry:last')
 
+		var $newStudentName = $('.new-student-name').val();
+		var $newStudentSurname = $('.new-student-surname').val();
 		myToggle();	
-
 	   e.preventDefault();
 	});
 

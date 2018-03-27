@@ -17,9 +17,9 @@
     <body>
          <div class="topnav" id="myTopnav">
             <a href="pocetna.html" class="active"><span class="home">e-Dnevnik</span></a>
-            <a href="imenik.html">Imenik</a>
             <a href="predmeti.html">Predmeti</a>
             <a href="ucenici.html">Učenici</a>
+            <a href="imenik.html">Imenik</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
         </div> 
         <div class="full group">
@@ -27,6 +27,7 @@
                 <div class="subjects">
                     <h3>1A</h3>
                 </div>
+                
             </div>
             <div class="description">
                 <div class="full student-list">
@@ -34,11 +35,14 @@
                         <div class="students">
                             <h6>Martina Kolar</h6>
                         </div>
-                        <img src="https://image.flaticon.com/icons/png/128/61/61391.png" class="trash">
+                        
                     </div>
                     <div class="description">
-                        postoji
-                        </p>
+                        <div class="kontejner nontoggle">
+                            <div class="subjects">
+                                <h3><a href="ocjene.html"> Matematika </a></h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="full student-list">
@@ -46,16 +50,20 @@
                         <div class="students">
                             <h6>Andrea babić</h6>
                         </div>
-                        <img src="https://image.flaticon.com/icons/png/128/61/61391.png" class="trash">
+                        
+                        
                     </div>
                     <div class="description">
-                        postoji
-                        </p>
+                        <div class="kontejner nontoggle" >
+                            <div class="subjects">
+                                <h3> <a href="ocjene.html">Matematika</a></h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="student-entry">
-                    <form class="new-student-entry">
+                    <form class="new-student-entry" id="new-student-entry">
                         
                             <p>Novi učenik:</p>
                             <input type="text" class="new-student-name" placeholder="Ime" required>
@@ -83,18 +91,15 @@
                   </div>
                 </div>
             </form>
+
         </div>
 
-        <div class="lightbox">
-            <div class="">
-                
-            </div>
-        </div>
         <div class="confirmation">
             <p>Jeste li sigurni da želite obrisati ovaj element?</p>
 
             <button class="btn btn-default" id="confirm">Jesam!</button>
             <button class="btn btn-default" id="cancel">Odustani</button>
         </div>
+        
     </body>
 </html>
